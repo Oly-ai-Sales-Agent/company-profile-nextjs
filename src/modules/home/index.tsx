@@ -62,7 +62,7 @@ export function HomeModule() {
 
       <section
         id="trust"
-        className="space-y-6 rounded-[2rem] border border-zinc-200 bg-zinc-50 p-10 shadow-sm"
+        className="space-y-6 rounded-[2rem] border border-zinc-200 bg-white p-10 shadow-sm"
       >
         <TrustedCompaniesCarousel />
       </section>
