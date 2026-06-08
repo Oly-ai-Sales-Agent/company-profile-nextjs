@@ -1,5 +1,4 @@
 export const navItems = [
-  { label: "Values", href: "#values" },
   { label: "Pricing", href: "#pricing" },
   { label: "Trust", href: "#trust" },
   { label: "Request Demo", href: "#demo" },
@@ -13,12 +12,6 @@ export const heroContent = {
   primaryCta: { label: "Request Demo", href: "#demo" },
   secondaryCta: { label: "Trusted By", href: "#trust" },
 };
-
-export const values = [
-  { title: "Innovation", description: "AI-first workflows crafted for modern real estate teams." },
-  { title: "Precision", description: "Lead qualification that turns data into high-value opportunities." },
-  { title: "Growth", description: "Scale faster with a smarter sales process and better follow-up." },
-];
 
 export const pricingPlans = [
   { title: "Starter", price: "$99/mo", features: ["100 leads", "AI qualification", "Email support"] },
