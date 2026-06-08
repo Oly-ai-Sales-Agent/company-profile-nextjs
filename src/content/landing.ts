@@ -29,9 +29,19 @@ export const trustedCompanies = [
 
 export const demoSection = {
   eyebrow: "Request a Demo",
-  title: "Stay first in line for an Oly demo.",
+  title: "Stay first in line for Oly's demo.",
   description: "Tell us about your team and we’ll reach out with a tailored walkthrough.",
 };
+
+export const demoFormFields = [
+  { name: "name", label: "Name", type: "text" },
+  { name: "occupation", label: "Occupation", type: "text" },
+  { name: "companyName", label: "Company name", type: "text" },
+  { name: "mobileNumber", label: "Mobile number", type: "tel" },
+  { name: "emailAddress", label: "Email Address", type: "email" },
+] as const;
+
+export const demoFormSubmitLabel = "Request Demo";
 
 export const footerContent = {
   companyName: "Oly",
