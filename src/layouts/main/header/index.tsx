@@ -22,9 +22,9 @@ export function MainHeader() {
 
   return (
     <header ref={headerRef} className="sticky top-0 z-40 border-b border-zinc-200 bg-white/95 px-6 py-4 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row sm:gap-6">
         <BrandLogo />
-        <nav className="flex flex-wrap items-center gap-5 text-sm font-medium text-slate-700">
+        <nav className="flex flex-wrap items-center justify-center gap-5 text-sm font-medium text-slate-700">
           {navItems.map((item) => (
             <a
               key={item.href}
