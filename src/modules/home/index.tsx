@@ -11,7 +11,7 @@ export function HomeModule() {
     <div className="space-y-24">
       <section
         id="home"
-        className="rounded-[2rem] border border-zinc-200 bg-zinc-50 p-10 shadow-sm"
+        className="rounded-[2rem] border border-zinc-200 bg-white p-10 shadow-sm"
       >
         <div className="max-w-4xl">
           <p className="text-sm uppercase tracking-[0.35em] text-slate-500">{heroContent.eyebrow}</p>
