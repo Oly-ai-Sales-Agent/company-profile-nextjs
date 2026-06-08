@@ -30,7 +30,7 @@ export function TrustedCompaniesCarousel() {
           }
           
           .carousel-container {
-            animation: scroll-right 30s linear ${isHovered ? "paused" : "running"} infinite;
+            animation: scroll-right 10s linear ${isHovered ? "paused" : "running"} infinite;
             animation-timing-function: linear;
           }
         `}</style>
