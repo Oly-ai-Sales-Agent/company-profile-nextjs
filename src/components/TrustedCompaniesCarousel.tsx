@@ -35,15 +35,15 @@ export function TrustedCompaniesCarousel() {
           }
         `}</style>
 
-        <div className="carousel-container flex">
+        <div className="carousel-container flex w-max">
           {/* Original */}
-          <div className="flex w-full shrink-0 items-center justify-center whitespace-nowrap px-8 py-12">
-            <p className="text-center text-lg font-semibold text-slate-900">{TRUSTED_BY_PLACEHOLDER_MESSAGE}</p>
+          <div className="flex shrink-0 items-center justify-center whitespace-nowrap px-8 py-12">
+            <p className="text-center text-base font-semibold text-slate-900 sm:text-lg">{TRUSTED_BY_PLACEHOLDER_MESSAGE}</p>
           </div>
 
           {/* Duplicate for seamless loop */}
-          <div className="flex w-full shrink-0 items-center justify-center whitespace-nowrap px-8 py-12">
-            <p className="text-center text-lg font-semibold text-slate-900">{TRUSTED_BY_PLACEHOLDER_MESSAGE}</p>
+          <div className="flex shrink-0 items-center justify-center whitespace-nowrap px-8 py-12">
+            <p className="text-center text-base font-semibold text-slate-900 sm:text-lg">{TRUSTED_BY_PLACEHOLDER_MESSAGE}</p>
           </div>
         </div>
       </div>
