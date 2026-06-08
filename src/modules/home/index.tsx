@@ -4,6 +4,7 @@ import {
   pricingPlans,
 } from "../../content/landing";
 import { TrustedCompaniesCarousel } from "../../components/TrustedCompaniesCarousel";
+import { DemoRequestForm } from "../../components/DemoRequestForm";
 
 export function HomeModule() {
   return (
@@ -75,6 +76,7 @@ export function HomeModule() {
           <h2 className="mt-4 text-3xl font-semibold text-slate-900">{demoSection.title}</h2>
           <p className="mt-4 text-slate-600">{demoSection.description}</p>
         </div>
+        <DemoRequestForm />
       </section>
     </div>
   );
