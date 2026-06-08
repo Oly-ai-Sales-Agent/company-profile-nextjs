@@ -36,32 +36,14 @@ export function TrustedCompaniesCarousel() {
         `}</style>
 
         <div className="carousel-container flex">
-          {/* Original set */}
-          <div className="flex shrink-0">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <div
-                key={`first-${index}`}
-                className="flex w-80 shrink-0 flex-col items-center justify-center px-8 py-12"
-              >
-                <p className="text-center text-lg font-semibold text-slate-900">
-                  {TRUSTED_BY_PLACEHOLDER_MESSAGE}
-                </p>
-              </div>
-            ))}
+          {/* Original */}
+          <div className="flex w-full shrink-0 items-center justify-center whitespace-nowrap px-8 py-12">
+            <p className="text-center text-lg font-semibold text-slate-900">{TRUSTED_BY_PLACEHOLDER_MESSAGE}</p>
           </div>
 
           {/* Duplicate for seamless loop */}
-          <div className="flex shrink-0">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <div
-                key={`second-${index}`}
-                className="flex w-80 shrink-0 flex-col items-center justify-center px-8 py-12"
-              >
-                <p className="text-center text-lg font-semibold text-slate-900">
-                  {TRUSTED_BY_PLACEHOLDER_MESSAGE}
-                </p>
-              </div>
-            ))}
+          <div className="flex w-full shrink-0 items-center justify-center whitespace-nowrap px-8 py-12">
+            <p className="text-center text-lg font-semibold text-slate-900">{TRUSTED_BY_PLACEHOLDER_MESSAGE}</p>
           </div>
         </div>
       </div>
