@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { trustedCompanies } from "@/content/landing";
+
+const TRUSTED_BY_PLACEHOLDER_MESSAGE = "Be the first to partner with us in this transformative journey!";
 
 export function TrustedCompaniesCarousel() {
   const [isHovered, setIsHovered] = useState(false);
@@ -37,32 +38,28 @@ export function TrustedCompaniesCarousel() {
         <div className="carousel-container flex">
           {/* Original set */}
           <div className="flex shrink-0">
-            {trustedCompanies.map((company, index) => (
+            {Array.from({ length: 4 }).map((_, index) => (
               <div
                 key={`first-${index}`}
                 className="flex w-80 shrink-0 flex-col items-center justify-center px-8 py-12"
               >
-                <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-2xl bg-slate-900 text-4xl">
-                  {company.logo}
-                </div>
-                <p className="text-center font-semibold text-slate-900">{company.name}</p>
-                <p className="mt-2 text-center text-sm text-slate-600">{company.leads}</p>
+                <p className="text-center text-lg font-semibold text-slate-900">
+                  {TRUSTED_BY_PLACEHOLDER_MESSAGE}
+                </p>
               </div>
             ))}
           </div>
 
           {/* Duplicate for seamless loop */}
           <div className="flex shrink-0">
-            {trustedCompanies.map((company, index) => (
+            {Array.from({ length: 4 }).map((_, index) => (
               <div
                 key={`second-${index}`}
                 className="flex w-80 shrink-0 flex-col items-center justify-center px-8 py-12"
               >
-                <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-2xl bg-slate-900 text-4xl">
-                  {company.logo}
-                </div>
-                <p className="text-center font-semibold text-slate-900">{company.name}</p>
-                <p className="mt-2 text-center text-sm text-slate-600">{company.leads}</p>
+                <p className="text-center text-lg font-semibold text-slate-900">
+                  {TRUSTED_BY_PLACEHOLDER_MESSAGE}
+                </p>
               </div>
             ))}
           </div>
