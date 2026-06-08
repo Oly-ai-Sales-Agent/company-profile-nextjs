@@ -15,7 +15,7 @@ export function TrustedCompaniesCarousel() {
       </div>
 
       <div
-        className="overflow-hidden rounded-2xl bg-white"
+        className="overflow-hidden rounded-2xl bg-zinc-50"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -30,7 +30,7 @@ export function TrustedCompaniesCarousel() {
           }
           
           .carousel-container {
-            animation: scroll-right 10s linear ${isHovered ? "paused" : "running"} infinite;
+            animation: scroll-right 30s linear ${isHovered ? "paused" : "running"} infinite;
             animation-timing-function: linear;
           }
         `}</style>
