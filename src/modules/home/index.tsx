@@ -2,7 +2,6 @@ import {
   demoSection,
   heroContent,
   pricingPlans,
-  values,
 } from "../../content/landing";
 import { TrustedCompaniesCarousel } from "../../components/TrustedCompaniesCarousel";
 
@@ -34,18 +33,6 @@ export function HomeModule() {
             </a>
           </div>
         </div>
-      </section>
-
-      <section id="values" className="grid gap-8 md:grid-cols-3">
-        {values.map((item) => (
-          <div
-            key={item.title}
-            className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg"
-          >
-            <h2 className="text-2xl font-semibold text-slate-900">{item.title}</h2>
-            <p className="mt-4 text-slate-600">{item.description}</p>
-          </div>
-        ))}
       </section>
 
       <section id="pricing" className="space-y-8">
