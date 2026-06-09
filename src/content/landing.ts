@@ -134,10 +134,5 @@ export const footerContent = {
   companyName: "Oly",
   description:
     "AI sales agent designed for real estate developers who want smarter lead qualification and faster deal momentum.",
-  socialLinks: [
-    { label: "LinkedIn", href: "#" },
-    { label: "Twitter", href: "#" },
-    { label: "Instagram", href: "#" },
-  ],
-  addressLines: ["123 Oly Avenue", "Dubai, UAE", "hello@oly.ai"],
+  addressLines: ["Oly", "Cairo, Egypt", "hello@oly.ai"],
 };
