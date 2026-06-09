@@ -38,33 +38,6 @@ export function HomeModule() {
         </div>
       </section>
 
-      <section id="pricing" className="space-y-8">
-        <div>
-          <p className="text-sm uppercase tracking-[0.35em] text-slate-500">Pricing</p>
-          <h2 className="mt-4 text-4xl font-semibold text-slate-900">Simple plans for growing development teams</h2>
-        </div>
-
-        <div className="mx-auto max-w-2xl">
-          {pricingPlans.map((plan) => (
-            <div
-              key={plan.title}
-              className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg"
-            >
-              <h3 className="text-2xl font-semibold text-slate-900">{plan.title}</h3>
-              <p className="mt-4 text-4xl font-semibold text-slate-900">{plan.price}</p>
-              <ul className="mt-6 space-y-3 text-slate-600">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <span className="mt-1 text-green-600">✓</span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section id="why-oly" className="space-y-12">
         <div className="max-w-3xl">
           <p className="text-sm uppercase tracking-[0.35em] text-slate-500">Why Oly</p>
@@ -104,6 +77,33 @@ export function HomeModule() {
         className="space-y-6 rounded-[2rem] border border-zinc-200 bg-white p-10 shadow-sm"
       >
         <TrustedCompaniesCarousel />
+      </section>
+
+      <section id="pricing" className="space-y-8">
+        <div>
+          <p className="text-sm uppercase tracking-[0.35em] text-slate-500">Pricing</p>
+          <h2 className="mt-4 text-4xl font-semibold text-slate-900">Simple plans for growing development teams</h2>
+        </div>
+
+        <div className="mx-auto max-w-2xl">
+          {pricingPlans.map((plan) => (
+            <div
+              key={plan.title}
+              className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg"
+            >
+              <h3 className="text-2xl font-semibold text-slate-900">{plan.title}</h3>
+              <p className="mt-4 text-4xl font-semibold text-slate-900">{plan.price}</p>
+              <ul className="mt-6 space-y-3 text-slate-600">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3">
+                    <span className="mt-1 text-green-600">✓</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section
