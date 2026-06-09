@@ -27,6 +27,7 @@ function useClock() {
 export function MainHeader() {
   const headerRef = useRef<HTMLElement>(null);
   const [isHidden, setIsHidden] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const scrollYRef = useRef(0);
   const ticking = useRef(false);
   const time = useClock();
@@ -45,8 +46,12 @@ export function MainHeader() {
       window.requestAnimationFrame(() => {
         const y = window.scrollY;
         const delta = y - scrollYRef.current;
-        if (delta > 0 && y > 120) setIsHidden(true);
-        else if (delta < 0) setIsHidden(false);
+        if (delta > 0 && y > 120) {
+          setIsHidden(true);
+          setMobileMenuOpen(false);
+        } else if (delta < 0) {
+          setIsHidden(false);
+        }
         scrollYRef.current = y;
         ticking.current = false;
       });
@@ -68,10 +73,10 @@ export function MainHeader() {
         isHidden ? "-translate-y-[140%]" : "translate-y-0"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-[1320px] items-start justify-between gap-4 px-5 pt-5 sm:px-8 sm:pt-6">
+      <div className="mx-auto flex w-full max-w-[1320px] items-center justify-between gap-4 px-5 pt-5 sm:px-8 sm:pt-6">
         <BrandLogo />
 
-        {/* Center meta — Cairo / time / email — mimics noteworthy hello@ block */}
+        {/* Center meta — Cairo / time */}
         <div className="hidden md:flex items-center gap-8 rounded-full bg-white/70 px-6 py-3 text-[13px] font-medium text-[var(--ink)] shadow-[0_6px_24px_-12px_rgba(11,11,15,0.18)] ring-1 ring-black/5 backdrop-blur-xl">
           <span className="flex items-center gap-2">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -91,16 +96,67 @@ export function MainHeader() {
               {item.label}
             </a>
           ))}
+
+          {/* Hamburger — mobile only */}
+          <button
+            type="button"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMobileMenuOpen((o) => !o)}
+            className="sm:hidden inline-flex flex-col items-center justify-center gap-[5px] rounded-full p-2.5 transition hover:bg-black/[0.04]"
+          >
+            <span
+              className={`h-0.5 w-[18px] rounded-full bg-[var(--ink)] transition-transform duration-200 ${
+                mobileMenuOpen ? "translate-y-[7px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 w-[18px] rounded-full bg-[var(--ink)] transition-opacity duration-200 ${
+                mobileMenuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`h-0.5 w-[18px] rounded-full bg-[var(--ink)] transition-transform duration-200 ${
+                mobileMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
+              }`}
+            />
+          </button>
+
           <a
             href="#demo"
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--ink)] px-4 py-2 text-[13px] font-medium text-white transition hover:bg-black"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[var(--ink)] px-4 py-2 text-[13px] font-medium text-white transition hover:bg-black"
           >
             Request a Demo
-            {/* <span aria-hidden className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-[10px]">
-              ✦
-            </span> */}
           </a>
         </nav>
+      </div>
+
+      {/* Mobile dropdown menu */}
+      <div
+        className={`sm:hidden mx-5 overflow-hidden rounded-2xl bg-white/95 ring-1 ring-black/5 backdrop-blur-xl transition-all duration-300 ease-out ${
+          mobileMenuOpen
+            ? "mt-2 max-h-96 opacity-100 shadow-[0_8px_32px_-8px_rgba(11,11,15,0.2)]"
+            : "max-h-0 opacity-0"
+        }`}
+      >
+        {navItems.slice(0, 4).map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center px-5 py-4 text-sm font-medium text-[var(--ink-soft)] border-b border-black/[0.05] transition hover:bg-black/[0.03] hover:text-[var(--ink)]"
+          >
+            {item.label}
+          </a>
+        ))}
+        <div className="p-3">
+          <a
+            href="#demo"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center justify-center rounded-full bg-[var(--ink)] px-4 py-3 text-[13px] font-medium text-white transition hover:bg-black"
+          >
+            Request a Demo
+          </a>
+        </div>
       </div>
     </header>
   );

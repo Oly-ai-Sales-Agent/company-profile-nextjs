@@ -231,7 +231,7 @@ export function HomeModule() {
           <div className="sm:col-span-5 space-y-6">
             <Eyebrow>{demoSection.eyebrow}</Eyebrow>
             <h2 className="text-4xl sm:text-5xl leading-[1.05] tracking-[-0.02em] text-[var(--ink)]">
-              Stay <span className="font-display">first</span> in line for Oly&apos;s demo.
+              Stay <span className="font-display">first </span> in line for <span className="font-display">Oly&apos;s </span> demo.
             </h2>
             <p className="text-base text-[var(--ink-soft)]">{demoSection.description}</p>
 
