@@ -27,7 +27,7 @@ export function DemoRequestForm() {
           <input
             id={field.name}
             type={field.type}
-            className="rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition duration-200 ease-out focus:border-slate-400"
+            className="rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-slate-900 outline-none transition duration-200 ease-out focus:border-slate-400"
             {...register(field.name, { required: true })}
           />
           {errors[field.name] && <p className="text-sm text-red-600">{field.label} is required.</p>}
