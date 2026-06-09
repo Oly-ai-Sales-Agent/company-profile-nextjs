@@ -23,7 +23,10 @@ export function DemoRequestForm() {
     formState: { errors, isSubmitSuccessful },
   } = useForm<DemoFormValues>();
 
-  const onSubmit = handleSubmit(async (data) => {
+ const onSubmit = handleSubmit(
+  async (data) => {
+    console.log("FORM SUBMITTED", data);
+
     try {
       setSubmitError("");
       setIsSubmitting(true);
@@ -36,6 +39,8 @@ export function DemoRequestForm() {
         body: JSON.stringify(data),
       });
 
+      console.log("RESPONSE STATUS", response.status);
+
       if (!response.ok) {
         throw new Error("Failed to submit request");
       }
@@ -43,13 +48,15 @@ export function DemoRequestForm() {
       reset();
     } catch (error) {
       console.error(error);
-      setSubmitError(
-        "Something went wrong. Please try again."
-      );
+      setSubmitError("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
-  });
+  },
+  (errors) => {
+    console.log("VALIDATION ERRORS", errors);
+  }
+);
 
   return (
     <form
