@@ -12,7 +12,7 @@ export async function POST(request: Request) {
       to: process.env.NOTIFICATION_EMAIL!,
       subject: "Oly Demo Request",
       html: `
-        <h2>New Demo Request For Oly AI Sales Agent</h2>
+        <h2>New Demo Requested For Oly AI Sales Agent</h2>
 
         <p><strong>Name:</strong> ${data.name}</p>
         <p><strong>Occupation:</strong> ${data.occupation}</p>
