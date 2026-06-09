@@ -7,11 +7,10 @@ import { navItems } from "../../../content/landing";
 export function MainHeader() {
   const headerRef = useRef<HTMLElement>(null);
   const [isHidden, setIsHidden] = useState(false);
+  const scrollYRef = useRef(0);
+  const ticking = useRef(false);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
     const updateHeaderHeight = () => {
       if (headerRef.current) {
         const height = headerRef.current.offsetHeight;
@@ -20,15 +19,22 @@ export function MainHeader() {
     };
 
     const handleScroll = () => {
-      if (!ticking) {
+      if (!ticking.current) {
         window.requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
-          const isScrollingDown = currentScrollY > lastScrollY && currentScrollY > 80;
-          setIsHidden(isScrollingDown);
-          lastScrollY = currentScrollY;
-          ticking = false;
+          const scrollDelta = currentScrollY - scrollYRef.current;
+          
+          // Hide on scroll down past 80px threshold, show on scroll up
+          if (scrollDelta > 0 && currentScrollY > 80) {
+            setIsHidden(true);
+          } else if (scrollDelta < 0) {
+            setIsHidden(false);
+          }
+          
+          scrollYRef.current = currentScrollY;
+          ticking.current = false;
         });
-        ticking = true;
+        ticking.current = true;
       }
     };
 
