@@ -9,15 +9,6 @@ export function MainFooter() {
           <p className="max-w-md text-sm leading-6 text-slate-600">{footerContent.description}</p>
         </div>
 
-        <div className="grid gap-4 text-sm text-slate-600">
-          <div className="font-semibold text-slate-900">Social</div>
-          {footerContent.socialLinks.map((link) => (
-            <a key={link.label} href={link.href} className="transition duration-200 ease-out hover:text-slate-900">
-              {link.label}
-            </a>
-          ))}
-        </div>
-
         <div className="text-sm leading-6 text-slate-600">
           <p className="font-semibold text-slate-900">Address</p>
           {footerContent.addressLines.map((line) => (
