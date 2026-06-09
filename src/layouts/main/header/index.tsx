@@ -57,12 +57,12 @@ export function MainHeader() {
     >
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row sm:gap-6">
         <BrandLogo />
-        <nav className="flex flex-wrap items-center justify-center gap-5 text-sm font-medium text-slate-700">
+        <nav className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-sm font-medium text-slate-700">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="transition duration-200 ease-out hover:text-slate-900"
+              className="transition duration-200 ease-out hover:text-slate-900 whitespace-nowrap"
             >
               {item.label}
             </a>
