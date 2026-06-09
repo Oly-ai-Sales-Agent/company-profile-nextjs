@@ -2,6 +2,8 @@ import {
   demoSection,
   heroContent,
   pricingPlans,
+  whyOlySection,
+  whatOlyDoesSection,
 } from "../../content/landing";
 import { TrustedCompaniesCarousel } from "../../components/TrustedCompaniesCarousel";
 import { DemoRequestForm } from "../../components/DemoRequestForm";
@@ -42,7 +44,7 @@ export function HomeModule() {
           <h2 className="mt-4 text-4xl font-semibold text-slate-900">Simple plans for growing development teams</h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="mx-auto max-w-2xl">
           {pricingPlans.map((plan) => (
             <div
               key={plan.title}
@@ -52,9 +54,46 @@ export function HomeModule() {
               <p className="mt-4 text-4xl font-semibold text-slate-900">{plan.price}</p>
               <ul className="mt-6 space-y-3 text-slate-600">
                 {plan.features.map((feature) => (
-                  <li key={feature}>• {feature}</li>
+                  <li key={feature} className="flex items-start gap-3">
+                    <span className="mt-1 text-green-600">✓</span>
+                    <span>{feature}</span>
+                  </li>
                 ))}
               </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="why-oly" className="space-y-12">
+        <div className="max-w-3xl">
+          <p className="text-sm uppercase tracking-[0.35em] text-slate-500">Why Oly</p>
+          <h2 className="mt-4 text-4xl font-semibold text-slate-900">{whyOlySection.headline}</h2>
+          <p className="mt-6 text-lg leading-8 text-slate-600">{whyOlySection.paragraph}</p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2">
+          {whyOlySection.problems.map((problem) => (
+            <div key={problem.title} className="rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900">{problem.title}</h3>
+              <p className="mt-3 text-slate-600">{problem.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="what-oly-does" className="space-y-12">
+        <div className="max-w-3xl">
+          <p className="text-sm uppercase tracking-[0.35em] text-slate-500">What Oly Does</p>
+          <h2 className="mt-4 text-4xl font-semibold text-slate-900">{whatOlyDoesSection.headline}</h2>
+          <p className="mt-6 text-lg leading-8 text-slate-600">{whatOlyDoesSection.paragraph}</p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          {whatOlyDoesSection.features.map((feature) => (
+            <div key={feature.title} className="rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm hover:shadow-lg transition duration-200 ease-out">
+              <h3 className="text-lg font-semibold text-slate-900">{feature.title}</h3>
+              <p className="mt-3 text-slate-600">{feature.description}</p>
             </div>
           ))}
         </div>
