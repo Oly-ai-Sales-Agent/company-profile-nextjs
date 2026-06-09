@@ -1,13 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "../../../components/BrandLogo";
 import { navItems } from "../../../content/landing";
 
 export function MainHeader() {
-  const headerRef = useRef<HTMLHeadingElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
     const updateHeaderHeight = () => {
       if (headerRef.current) {
         const height = headerRef.current.offsetHeight;
@@ -15,13 +19,36 @@ export function MainHeader() {
       }
     };
 
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const isScrollingDown = currentScrollY > lastScrollY && currentScrollY > 80;
+          setIsHidden(isScrollingDown);
+          lastScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
     updateHeaderHeight();
     window.addEventListener("resize", updateHeaderHeight);
-    return () => window.removeEventListener("resize", updateHeaderHeight);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", updateHeaderHeight);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-40 border-b border-zinc-200 bg-white/95 px-6 py-4 backdrop-blur-xl">
+    <header
+      ref={headerRef}
+      className={`sticky top-0 z-40 border-b border-zinc-200 bg-white/95 px-6 py-4 backdrop-blur-xl transition-transform duration-300 ease-in-out ${
+        isHidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row sm:gap-6">
         <BrandLogo />
         <nav className="flex flex-wrap items-center justify-center gap-5 text-sm font-medium text-slate-700">
