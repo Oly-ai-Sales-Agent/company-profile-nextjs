@@ -10,7 +10,7 @@ export const heroContent = {
   eyebrow: "AI Sales Agent for Real Estate",
   title: "Oly helps developers qualify leads, accelerate deals, and keep sales moving.",
   description:
-    "Build an intelligent agent that engages prospects instantly, scores every lead precisely, and frees your team to focus on closing bigger projects.",
+    "Build an intelligent ai agent that engages prospects instantly, scores every lead precisely, and frees your team to focus on closing bigger projects.",
   primaryCta: { label: "Request a Demo", href: "#demo" },
   secondaryCta: { label: "Trusted By", href: "#trust" },
 };

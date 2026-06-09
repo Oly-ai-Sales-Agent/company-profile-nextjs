@@ -14,7 +14,7 @@ export function BrandLogo() {
         width={64}
         height={64}
         priority
-        className="h-14 w-14 flex-shrink-0 object-contain"
+        className="h-14 w-14 flex-shrink-0 object-contain contrast-[1.2] brightness-[0.88]"
       />
       <span className="block text-[11px] sm:text-[13px] font-medium leading-snug text-[var(--ink-soft)] max-w-[120px] sm:max-w-[140px]">
         Redefining Real Estate<br />Sales Operations

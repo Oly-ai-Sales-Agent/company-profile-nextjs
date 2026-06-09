@@ -20,22 +20,19 @@ export function TrustedCompaniesCarousel() {
         </div>
       </div>
 
-      <div className="marquee-pause relative overflow-hidden">
+      <div className="marquee-pause relative overflow-hidden rounded-2xl bg-[#F5F5F7] py-5 ring-1 ring-black/[0.07]">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#F5F5F7] to-transparent"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#F5F5F7] to-transparent"
         />
-        <div className="marquee-track flex w-max gap-4">
+        <div className="marquee-track flex w-max">
           {[...items, ...items].map((_, i) => (
-            <div
-              key={i}
-              className="flex shrink-0 items-center gap-3 rounded-full bg-[var(--background)] px-6 py-4 ring-1 ring-black/5"
-            >
-              {/* < span aria-hidden className="text-[var(--ink-soft)]">✦</span> */}
+            <div key={i} className="flex shrink-0 items-center gap-3 px-8">
+              {/* <span aria-hidden className="text-[var(--ink-soft)] opacity-40">✦</span> */}
               <p className="whitespace-nowrap text-sm font-medium text-[var(--ink)]">
                 {MESSAGE}
               </p>
