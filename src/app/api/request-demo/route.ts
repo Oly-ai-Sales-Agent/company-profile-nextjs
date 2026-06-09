@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const data = await request.json();
 
     await resend.emails.send({
-      from: "Demo Requests@yourdomain.com",
+      from: "EmailService@resend.dev",
       to: process.env.NOTIFICATION_EMAIL!,
       subject: "New Demo Request",
       html: `
