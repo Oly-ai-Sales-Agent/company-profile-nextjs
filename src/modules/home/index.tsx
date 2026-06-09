@@ -123,7 +123,7 @@ export function HomeModule() {
           <Eyebrow>What Oly Does</Eyebrow>
           <h2 className="text-4xl sm:text-6xl leading-[1.05] tracking-[-0.02em] text-[var(--ink)]">
             Everything your sales team needs,{" "}
-            <span className="font-display">running automatically.</span>
+            <span className="font-display">running autonomously.</span>
           </h2>
           <p className="text-base text-[var(--ink-soft)]">{whatOlyDoesSection.paragraph}</p>
         </div>
