@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const data = await request.json();
 
     await resend.emails.send({
-      from: "EmailService@resend.dev",
+      from: "onboarding@resend.dev",
       to: process.env.NOTIFICATION_EMAIL!,
       subject: "Oly Demo Request",
       html: `
@@ -25,10 +25,11 @@ export async function POST(request: Request) {
       success: true,
     });
   } catch (error) {
-    console.error(error);
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("[request-demo]", message);
 
     return NextResponse.json(
-      { success: false },
+      { success: false, error: message },
       { status: 500 }
     );
   }
