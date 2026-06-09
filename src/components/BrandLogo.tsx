@@ -1,18 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function BrandLogo() {
   return (
-    <div className="flex flex-col items-center gap-1 text-center sm:flex-row sm:items-center sm:gap-3 sm:text-left">
+    <Link
+      href="#home"
+      aria-label="Oly home"
+      className="group relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-[0_6px_24px_-8px_rgba(11,11,15,0.18),0_2px_6px_-2px_rgba(11,11,15,0.08)] ring-1 ring-black/5 transition-transform duration-300 ease-out hover:-rotate-3"
+    >
       <Image
         src="/logo.png"
-        alt="Oly Logo"
-        width={120}
-        height={120}
+        alt="Oly"
+        width={56}
+        height={56}
         priority
+        className="h-9 w-9 object-contain"
       />
-      <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-slate-500 sm:text-sm sm:tracking-[0.2em]">
-        Redefining Real Estate Sales Operations
-      </span>
-    </div>
+    </Link>
   );
 }

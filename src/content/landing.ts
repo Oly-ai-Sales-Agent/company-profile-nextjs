@@ -11,13 +11,13 @@ export const heroContent = {
   title: "Oly helps developers qualify leads, accelerate deals, and keep sales moving.",
   description:
     "Build an intelligent agent that engages prospects instantly, scores every lead precisely, and frees your team to focus on closing bigger projects.",
-  primaryCta: { label: "Request Demo", href: "#demo" },
+  primaryCta: { label: "Request a Demo", href: "#demo" },
   secondaryCta: { label: "Trusted By", href: "#trust" },
 };
 
 export const pricingPlans = [
   {
-    title: "Custom",
+    title: "Enterprise",
     price: "Custom",
     features: [
       "Up 24/7",
@@ -84,14 +84,18 @@ export const whatOlyDoesSection = {
       description:
         "Oly responds to every inquiry at any hour — so serious buyers always get an immediate reply, even outside business hours.",
     },
+        {
+      title: "Bilingual Arabic and English",
+      description: "Serve customers in their preferred language, expanding your market reach.",
+    },
     {
       title: "Lead qualification",
       description:
         "Oly asks the right questions to assess each buyer's intent and readiness, so your team only follows up with serious prospects.",
     },
-    {
-      title: "Bilingual Arabic and English",
-      description: "Serve customers in their preferred language, expanding your market reach.",
+        {
+      title: "Custom workflows",
+      description: "Every step — from the first message to handing a lead to your team — is built around how your sales process actually works.",
     },
     {
       title: "Multichannel",
@@ -101,21 +105,17 @@ export const whatOlyDoesSection = {
       title: "Live data sync",
       description: "Always access the latest listings, prices, and availability information.",
     },
+        {
+      title: "Analytics dashboard",
+      description: "Track performance, conversion rates, and optimize your sales process with real-time data.",
+    },
     {
       title: "Conversation history",
       description: "Every conversation is saved and searchable. Your team always has full context before picking up the phone.",
     },
     {
-      title: "Custom workflows",
-      description: "Every step — from the first message to handing a lead to your team — is built around how your sales process actually works.",
-    },
-    {
       title: "AI audit for conversations",
       description: "Automatically review conversations for quality, compliance, and insights.",
-    },
-    {
-      title: "Analytics dashboard",
-      description: "Track performance, conversion rates, and optimize your sales process with real-time data.",
     },
   ],
 };
@@ -128,11 +128,11 @@ export const demoFormFields = [
   { name: "emailAddress", label: "Email Address", type: "email" },
 ] as const;
 
-export const demoFormSubmitLabel = "Request Demo";
+export const demoFormSubmitLabel = "Submit Request";
 
 export const footerContent = {
   companyName: "Oly",
   description:
     "AI sales agent designed for real estate developers who want smarter lead qualification and faster deal momentum.",
-  addressLines: ["Oly", "Cairo, Egypt", "hello@oly.ai"],
+  addressLines: ["Oly", "Cairo, Egypt"],
 };

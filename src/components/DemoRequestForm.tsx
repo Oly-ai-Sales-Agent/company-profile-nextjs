@@ -2,20 +2,13 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import {
-  demoFormFields,
-  demoFormSubmitLabel,
-} from "@/content/landing";
+import { demoFormFields, demoFormSubmitLabel } from "@/content/landing";
 
-type DemoFormValues = Record<
-  (typeof demoFormFields)[number]["name"],
-  string
->;
+type DemoFormValues = Record<(typeof demoFormFields)[number]["name"], string>;
 
 export function DemoRequestForm() {
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const {
     register,
     handleSubmit,
@@ -23,97 +16,66 @@ export function DemoRequestForm() {
     formState: { errors, isSubmitSuccessful },
   } = useForm<DemoFormValues>();
 
- const onSubmit = handleSubmit(
-  async (data) => {
-    console.log("FORM SUBMITTED", data);
-
+  const onSubmit = handleSubmit(async (data) => {
     try {
       setSubmitError("");
       setIsSubmitting(true);
-
-      const response = await fetch("/api/request-demo", {
+      const res = await fetch("/api/request-demo", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
-      console.log("RESPONSE STATUS", response.status);
-
-      if (!response.ok) {
-        throw new Error("Failed to submit request");
-      }
-
+      if (!res.ok) throw new Error("Failed to submit request");
       reset();
-    } catch (error) {
-      console.error(error);
+    } catch (e) {
+      console.error(e);
       setSubmitError("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
-  },
-  (errors) => {
-    console.log("VALIDATION ERRORS", errors);
-  }
-);
+  });
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className="grid gap-5 sm:grid-cols-2"
-    >
+    <form onSubmit={onSubmit} className="grid gap-4 sm:grid-cols-2">
       {demoFormFields.map((field) => (
         <div
           key={field.name}
-          className="flex flex-col gap-2"
+          className={`flex flex-col gap-1.5 ${
+            field.name === "emailAddress" ? "sm:col-span-2" : ""
+          }`}
         >
           <label
             htmlFor={field.name}
-            className="text-sm font-medium text-slate-700"
+            className="text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--ink-soft)]"
           >
             {field.label}
           </label>
-
           <input
             id={field.name}
             type={field.type}
-            className="rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-slate-900 outline-none transition duration-200 ease-out focus:border-slate-400"
-            {...register(field.name, {
-              required: true,
-            })}
+            placeholder={field.label}
+            className="rounded-2xl border-0 bg-[var(--background)] px-5 py-4 text-[15px] text-[var(--ink)] outline-none ring-1 ring-black/5 transition placeholder:text-[var(--ink-soft)]/60 focus:ring-2 focus:ring-[var(--ink)]"
+            {...register(field.name, { required: true })}
           />
-
           {errors[field.name] && (
-            <p className="text-sm text-red-600">
-              {field.label} is required.
-            </p>
+            <p className="text-xs text-red-600">{field.label} is required.</p>
           )}
         </div>
       ))}
 
-      <div className="sm:col-span-2">
+      <div className="sm:col-span-2 mt-2 flex flex-wrap items-center gap-4">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold text-white transition duration-200 ease-out hover:bg-slate-800 disabled:opacity-50"
+          className="inline-flex items-center gap-2 rounded-full bg-[var(--ink)] px-6 py-3.5 text-sm font-medium text-white transition hover:bg-black disabled:opacity-50"
         >
-          {isSubmitting
-            ? "Submitting..."
-            : demoFormSubmitLabel}
+          {isSubmitting ? "Submitting…" : demoFormSubmitLabel}
+          <span aria-hidden>→</span>
         </button>
-
         {isSubmitSuccessful && !submitError && (
-          <p className="mt-4 text-sm text-green-600">
-            Thanks! We'll be in touch soon.
-          </p>
+          <p className="text-sm text-emerald-700">Thanks — we&apos;ll be in touch soon.</p>
         )}
-
-        {submitError && (
-          <p className="mt-4 text-sm text-red-600">
-            {submitError}
-          </p>
-        )}
+        {submitError && <p className="text-sm text-red-600">{submitError}</p>}
       </div>
     </form>
   );

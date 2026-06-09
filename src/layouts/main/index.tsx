@@ -4,9 +4,11 @@ import { MainFooter } from "./footer";
 
 export function MainLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#F5F5F7] text-slate-900">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--ink)] grain-bg">
       <MainHeader />
-      <main className="mx-auto max-w-7xl px-6 py-10">{children}</main>
+      <main className="mx-auto w-full max-w-[1320px] px-5 sm:px-8 pt-32 sm:pt-40 pb-24">
+        {children}
+      </main>
       <MainFooter />
     </div>
   );
