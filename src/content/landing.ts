@@ -1,8 +1,8 @@
 export const navItems = [
-  { label: "Pricing", href: "#pricing" },
   { label: "Why Oly", href: "#why-oly" },
   { label: "What Oly Does", href: "#what-oly-does" },
   { label: "Trusted By", href: "#trust" },
+  { label: "Pricing", href: "#pricing" },
   { label: "Request Demo", href: "#demo" },
 ];
 
